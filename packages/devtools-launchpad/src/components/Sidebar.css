@@ -51,3 +51,7 @@
 .landing-page .sidebar li:focus a {
   color: inherit;
 }
+
+.landing-page .sidebar .settings-section {
+  border-top: 1px solid var(--theme-splitter-color);
+}

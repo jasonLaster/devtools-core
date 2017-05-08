@@ -21,7 +21,13 @@ module.exports = (webpackConfig, envConfig) => {
   }
 
   webpackConfig.devtool = false;
-  webpackConfig.recordsPath = path.join(rootDir, "assets/module-manifest.json");
+
+  if (false) {
+    webpackConfig.recordsPath = path.join(
+      rootDir,
+      "assets/module-manifest.json"
+    );
+  }
 
   function externalsTest(context, request, callback) {
     let mod = request;
@@ -60,10 +66,10 @@ module.exports = (webpackConfig, envConfig) => {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production"),
-        TARGET: JSON.stringify("firefox-panel")
+        TARGET: JSON.stringify("firefox-panel"),
       },
-      "DebuggerConfig": JSON.stringify(envConfig)
-    })
+      DebuggerConfig: JSON.stringify(envConfig),
+    }),
   ]);
 
   const mappings = [
