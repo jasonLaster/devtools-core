@@ -11,6 +11,7 @@ const {
   applySourceMap,
   clearSourceMaps
 } = require("./source-map");
+const { getLocationScopes } = require("./scopes");
 
 const { workerUtils: { workerHandler }} = require("devtools-utils");
 
@@ -20,6 +21,7 @@ self.onmessage = workerHandler({
   getOriginalURLs,
   getGeneratedLocation,
   getOriginalLocation,
+  getLocationScopes,
   getOriginalSourceText,
   hasMappedSource,
   applySourceMap,

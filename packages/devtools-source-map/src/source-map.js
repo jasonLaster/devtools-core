@@ -77,7 +77,7 @@ function _setSourceMapRoot(sourceMap, absSourceMapURL, source) {
   return sourceMap.sourceRoot;
 }
 
-function _getSourceMap(generatedSourceId: string)
+function getSourceMap(generatedSourceId: string)
     : ?Promise<SourceMapConsumer> {
   return sourceMapRequests.get(generatedSourceId);
 }
@@ -134,7 +134,7 @@ async function getGeneratedLocation(location: Location, originalSource: Source)
   }
 
   const generatedSourceId = originalToGeneratedId(location.sourceId);
-  const map = await _getSourceMap(generatedSourceId);
+  const map = await getSourceMap(generatedSourceId);
   if (!map) {
     return location;
   }
@@ -159,7 +159,7 @@ async function getOriginalLocation(location: Location) : Promise<Location> {
     return location;
   }
 
-  const map = await _getSourceMap(location.sourceId);
+  const map = await getSourceMap(location.sourceId);
   if (!map) {
     return location;
   }
@@ -187,7 +187,7 @@ async function getOriginalSourceText(originalSource: Source) {
          "Source is not an original source");
 
   const generatedSourceId = originalToGeneratedId(originalSource.id);
-  const map = await _getSourceMap(generatedSourceId);
+  const map = await getSourceMap(generatedSourceId);
   if (!map) {
     return null;
   }
@@ -228,6 +228,7 @@ module.exports = {
   getOriginalURLs,
   getGeneratedLocation,
   getOriginalLocation,
+  getSourceMap,
   getOriginalSourceText,
   applySourceMap,
   clearSourceMaps,
