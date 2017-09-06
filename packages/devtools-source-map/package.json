@@ -23,12 +23,18 @@
     "source-map": "^0.5.6"
   },
   "devDependencies": {
-    "devtools-launchpad": "^0.0.85"
+    "devtools-launchpad": "^0.0.85",
+    "uglify-es": "^3.0.28"
   },
   "jest": {
     "rootDir": "src",
-    "testMatch": ["**/tests/**/*.js"],
-    "testPathIgnorePatterns": ["/node_modules/", "/tests/fixtures/"],
+    "testMatch": [
+      "**/tests/**/*.js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/fixtures/"
+    ],
     "transformIgnorePatterns": [],
     "setupFiles": [],
     "moduleNameMapper": {}
