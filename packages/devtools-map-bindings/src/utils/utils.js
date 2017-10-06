@@ -32,4 +32,7 @@ function replaceOriginalVariableName(
   return `${generatedName}${expressionWoOriginalName}`;
 }
 
+
+function replaceOriginalVariables()
+
 module.exports = { replaceOriginalVariableName };
