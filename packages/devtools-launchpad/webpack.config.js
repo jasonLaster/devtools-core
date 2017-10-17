@@ -19,11 +19,6 @@ const {
 const NODE_ENV = process.env.NODE_ENV || "development";
 const TARGET = process.env.TARGET || "local";
 
-const defaultBabelPlugins = [
-  "transform-flow-strip-types",
-  "transform-async-to-generator"
-];
-
 module.exports = (webpackConfig, envConfig, options = {}) => {
   setConfig(envConfig);
 
@@ -51,9 +46,7 @@ module.exports = (webpackConfig, envConfig, options = {}) => {
       }
       return excluded && !request.match(/node_modules(\/|\\)devtools-/);
     },
-    loader: `babel-loader?${defaultBabelPlugins.map(
-      p => `plugins[]=${p}`
-    )}&ignore=src/lib`
+    loader: `babel-loader?ignore=src/lib`
   });
 
   webpackConfig.module.rules.push({
