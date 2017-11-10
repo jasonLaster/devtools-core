@@ -55,7 +55,7 @@
     "devtools-mc-assets": "^0.0.2",
     "devtools-modules": "^0.0.32",
     "devtools-sprintf-js": "^1.0.3",
-    "devtools-utils": "^0.0.9",
+    "devtools-utils": "^0.0.10",
     "express": "^4.13.4",
     "express-static": "^1.2.5",
     "extract-text-webpack-plugin": "^3.0.0",

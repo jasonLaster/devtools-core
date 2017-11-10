@@ -1566,9 +1566,9 @@ devtools-launchpad@^0.0.108:
     webpack-hot-middleware "^2.18.2"
     ws "^1.0.1"
 
-devtools-map-bindings@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/devtools-map-bindings/-/devtools-map-bindings-0.3.0.tgz#239eaf807b9a8680ceaf1491af1f7f2d4af4500e"
+devtools-map-bindings@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/devtools-map-bindings/-/devtools-map-bindings-0.3.1.tgz#a7b021788c9e4fc277d4a04de78c7266b8cc7f9e"
   dependencies:
     babel-plugin-transform-async-to-generator "^6.22.0"
     babel-plugin-transform-flow-strip-types "^6.22.0"
@@ -1592,6 +1592,14 @@ devtools-modules@^0.0.32:
 devtools-sprintf-js@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/devtools-sprintf-js/-/devtools-sprintf-js-1.0.3.tgz#c2aa3c39d4047525e60410325c86770620281b87"
+
+devtools-utils@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/devtools-utils/-/devtools-utils-0.0.10.tgz#3bfbf6e0b76cccae51754d8f40253e6d56568374"
+  dependencies:
+    babel-plugin-transform-flow-strip-types "^6.22.0"
+    babel-preset-stage-3 "^6.22.0"
+    jest "^19.0.2"
 
 devtools-utils@0.0.9:
   version "0.0.9"

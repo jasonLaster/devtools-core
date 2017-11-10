@@ -1,6 +1,6 @@
 {
   "name": "devtools-utils",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "DevTools Utils",
   "main": "index.js",
   "scripts": {
