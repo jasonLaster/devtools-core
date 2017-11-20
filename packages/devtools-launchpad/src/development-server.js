@@ -14,8 +14,6 @@ const serve = require("express-static");
 const bodyParser = require("body-parser");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
-const http = require("http");
-const https = require("https");
 const checkNode = require("check-node-version");
 const {
   setConfig,
@@ -26,27 +24,9 @@ const {
 } = require("devtools-config");
 const isDevelopment = require("devtools-config").isDevelopment;
 const { handleLaunchRequest } = require("./server/launch");
+const { handleNetworkRequest } = require("./server/networkRequest");
 const NODE_VERSION = require("../package.json").engines.node;
 let root;
-
-function httpOrHttpsGet(url, onResponse) {
-  let protocol = url.startsWith("https:") ? https : http;
-
-  return protocol.get(url, response => {
-    if (response.statusCode !== 200) {
-      console.error(`error response: ${response.statusCode} to ${url}`);
-      response.emit("statusCode", new Error(response.statusCode));
-      return onResponse("{}");
-    }
-    let body = "";
-    response.on("data", (d) => {
-      body += d;
-    });
-    response.on("end", () => onResponse(body));
-
-    return undefined;
-  });
-}
 
 function getFavicon() {
   let favicon = getValue("favicon");
@@ -74,25 +54,6 @@ function serveRoot(req, res) {
       favicon: getFavicon()
     })
   );
-}
-
-function handleNetworkRequest(req, res) {
-  const url = req.query.url;
-  if (url.indexOf("file://") === 0) {
-    const _path = url.replace("file://", "");
-    res.json(JSON.parse(fs.readFileSync(_path, "utf8")));
-  } else {
-    const httpReq = httpOrHttpsGet(req.query.url, body => {
-      try {
-        res.send(body);
-      } catch (e) {
-        res.status(500).send("Malformed json");
-      }
-    });
-
-    httpReq.on("error", err => res.status(500).send(err.code));
-    httpReq.on("statusCode", err => res.status(err.message).send(err.message));
-  }
 }
 
 function handleGetConfig(req, res) {

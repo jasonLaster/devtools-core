@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`networkRequest inline base64 json 1`] = `
+Array [
+  Object {
+    "file": "ng:///SettingsModule/ZmbSettingsOrderEmailNg2.ngfactory.js",
+    "mappings": "AAAA;;;;;;0BCAA;MAAA,8BAAA;MAAA;IAAA;;;",
+    "sourceRoot": "",
+    "sources": Array [
+      "ng:///SettingsModule/ZmbSettingsOrderEmailNg2.ngfactory.js",
+      "ng:///SettingsModule/ZmbSettingsOrderEmailNg2.html",
+    ],
+    "sourcesContent": Array [
+      " ",
+      "<zmb-settings-order-email></zmb-settings-order-email>",
+    ],
+    "version": 3,
+  },
+]
+`;
